@@ -42,7 +42,7 @@ const AddBook = () => {
             </div>
           </div>
           <div className="field">
-            <label className="label">publisher</label>
+            <label className="label">Publisher</label>
             <div className="control">
               <input
                 type="text"

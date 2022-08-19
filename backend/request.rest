@@ -1,27 +1,27 @@
-GET http://localhost:5000/users
+GET http://localhost:5000/books
 
 ###
-GET http://localhost:5000/users/62f21d90630a4685983c7453
+GET http://localhost:5000/books/62ff2c1806516204ef4f4aed
 
 ###
-POST http://localhost:5000/users
+POST http://localhost:5000/books
 Content-Type: application/json
 
 {
-    "name": "Nuro",
-    "email": "nuro@gmail.com",
-    "gender": "Female"
+    "book_title": "HTML CSS JS",
+    "publisher": "Informatika",
+    "genre": "Education"
 }
 
 ###
-PATCH http://localhost:5000/users/62f21d90630a4685983c7453
+PATCH http://localhost:5000/books/62ff2c1806516204ef4f4aed
 Content-Type: application/json
 
 {
-    "name": "Kuro",
-    "email": "kuro@gmail.com",
-    "gender": "Male"
+    "book_title": "JavaScript",
+    "publisher": "Informatika",
+    "genre": "Programming Education"
 }
 
 ###
-DELETE http://localhost:5000/users/62f21d90630a4685983c7453
+DELETE http://localhost:5000/books/62ff2c7406516204ef4f4af0

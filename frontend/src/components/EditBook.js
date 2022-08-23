@@ -24,12 +24,15 @@ const EditBook = () => {
   const updateBook = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`http://localhost:5000/books/${id}`, {
-        book_title,
-        publisher,
-        genre,
-      });
-      Navigate("/");
+      const confirm = window.confirm("The data you entered is correct?");
+      if (confirm === true) {
+        await axios.patch(`http://localhost:5000/books/${id}`, {
+          book_title,
+          publisher,
+          genre,
+        });
+        Navigate("/");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -48,6 +51,7 @@ const EditBook = () => {
                 value={book_title}
                 onChange={(e) => setBookTitle(e.target.value)}
                 placeholder="Book Title"
+                required={true}
               />
             </div>
           </div>
@@ -60,6 +64,7 @@ const EditBook = () => {
                 value={publisher}
                 onChange={(e) => setPublisher(e.target.value)}
                 placeholder="Publisher"
+                required={true}
               />
             </div>
           </div>
@@ -72,6 +77,7 @@ const EditBook = () => {
                 value={genre}
                 onChange={(e) => setGenre(e.target.value)}
                 placeholder="Genre"
+                required={true}
               />
             </div>
             <div className="field">

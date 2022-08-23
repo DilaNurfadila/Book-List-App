@@ -1,0 +1,13 @@
+.action {
+  width: 500px;
+  text-align: center;
+  color: blue;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: green;
+}

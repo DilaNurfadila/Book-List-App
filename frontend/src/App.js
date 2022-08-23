@@ -57,6 +57,31 @@ function App() {
           <Route path="edit/:id" element={<EditBook />}></Route>
         </Routes>
       </div>
+      <footer
+        className="footer is-dark has-shadow"
+        style={{
+          position: "fixed",
+          bottom: 0,
+          width: "100%",
+          marginTop: 50,
+          padding: 20,
+          backgroundColor: "hsl(0, 0%, 21%)",
+          color: "white",
+        }}
+      >
+        <div className="content has-text-centered">
+          <p>
+            Copyright &copy; 2022 All Right Reserved. Created by{" "}
+            <strong
+              style={{
+                color: "white",
+              }}
+            >
+              Someone from Another World
+            </strong>
+          </p>
+        </div>
+      </footer>
     </BrowserRouter>
   );
 }

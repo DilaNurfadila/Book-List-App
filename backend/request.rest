@@ -25,3 +25,6 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:5000/books/62ff2c7406516204ef4f4af0
+
+###
+GET http://localhost:5000/books/JavaScript

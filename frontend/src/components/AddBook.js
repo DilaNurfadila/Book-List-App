@@ -25,19 +25,31 @@ const AddBook = () => {
     }
   };
 
+  const input = async (ev) => {
+    ev.preventDefault();
+    var book_title = document.getElementById("book-title");
+    var publisher = document.getElementById("publisher");
+    var genre = document.getElementById("genre");
+    console.log(book_title.value);
+    console.log(publisher.value);
+    console.log(genre.value);
+  };
+
   return (
     <div className="columns">
       <div className="column is-half">
-        <form onSubmit={saveBook}>
+        <form onSubmit={saveBook} onInput={input}>
           <div className="field">
             <label className="label">Book Title</label>
             <div className="control">
               <input
                 type="text"
                 className="input"
+                id="book-title"
                 value={book_title}
                 onChange={(e) => setBookTitle(e.target.value)}
                 placeholder="Book Title"
+                required={true}
               />
             </div>
           </div>
@@ -47,9 +59,11 @@ const AddBook = () => {
               <input
                 type="text"
                 className="input"
+                id="publisher"
                 value={publisher}
                 onChange={(e) => setPublisher(e.target.value)}
                 placeholder="publisher"
+                required={true}
               />
             </div>
           </div>
@@ -59,9 +73,11 @@ const AddBook = () => {
               <input
                 type="text"
                 className="input"
+                id="genre"
                 value={genre}
                 onChange={(e) => setGenre(e.target.value)}
                 placeholder="Genre"
+                required={true}
               />
             </div>
             <div className="field">

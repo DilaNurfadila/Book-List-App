@@ -1,5 +1,7 @@
 import Book from "../models/bookModel.js";
 
+// const Book = require("../models/bookModel").default;
+
 export const getBooks = async (req, res) => {
   try {
     const books = await Book.find();
@@ -48,3 +50,57 @@ export const deleteBook = async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 };
+
+export const searchBook = async (req, res) => {
+  try {
+    // const searchbook = await Book.find({ book_title: `*/${search.value}*/` });
+    // res.json(searchbook);
+    const query = req.params.query;
+
+    Book.find(
+      {
+        $text: {
+          $search: query,
+        },
+      },
+      (err, result) => {
+        if (err) throw err;
+        if (result) {
+          res.json(result);
+        } else {
+          res.send(
+            JSON.stringify({
+              error: "Error",
+            })
+          );
+        }
+      }
+    );
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
+
+// app.get("/books/:query", cors(), (req, res) => {
+//   const query = req.params.query;
+
+//   Model.find(
+//     {
+//       $text: {
+//         $search: query,
+//       },
+//     },
+//     (err, result) => {
+//       if (err) throw err;
+//       if (result) {
+//         res.json(result);
+//       } else {
+//         res.send(
+//           JSON.stringify({
+//             error: "Error",
+//           })
+//         );
+//       }
+//     }
+//   );
+// });
